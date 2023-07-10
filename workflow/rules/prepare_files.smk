@@ -147,8 +147,6 @@ samtools faidx {input.reference} 2>&1>{log}
 # cp {input.genbank} {output.db_dir}/genes.gbk 2>>{log}
 # python3 workflow/scripts/prepare_snpeff.py {output.config} {input.genbank} 2>&1>>{log}
 #         """
-
-
 # rule build_snpeff_db:
 #     input:
 #         db_dir=OUT + "/mtb_typing/prepared_reference_data/{sample}/snpeff_ref",
@@ -174,8 +172,6 @@ samtools faidx {input.reference} 2>&1>{log}
 # cd $WORKDIR
 # snpeff build -genbank -v $DB_NAME -config $CONFIG_NAME -dataDir . 2>&1>{log}
 #         """
-
-
 # rule prepare_ab_table:
 #     input:
 #         csv=lambda wildcards: SAMPLES[wildcards.sample]["resistance_variants_csv"],
@@ -204,8 +200,6 @@ samtools faidx {input.reference} 2>&1>{log}
 # --other {params.metadata:q} \
 # {input} {output.uncompressed} 2>&1>{log}
 #         """
-
-
 # rule compress_index_ab_table:
 #     input:
 #         uncompressed=OUT + "/mtb_typing/prepared_reference_data/{sample}/ab_table.tab",
