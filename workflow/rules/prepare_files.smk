@@ -172,7 +172,7 @@ samtools faidx {input.reference} 2>&1>{log}
 # CONFIG_NAME=$(basename {input.config})
 # DB_NAME=$(basename {input.db_dir})
 # cd $WORKDIR
-# snpeff build -genbank -v $DB_NAME -config $CONFIG_NAME -dataDir . 2>&1>{log} 
+# snpeff build -genbank -v $DB_NAME -config $CONFIG_NAME -dataDir . 2>&1>{log}
 #         """
 
 
@@ -228,8 +228,6 @@ samtools faidx {input.reference} 2>&1>{log}
 # bgzip -c {input.uncompressed} 1> {output.compressed} 2>{log}
 # tabix -s 1 -b 2 -e 2 {output.compressed} 2>&1>>{log}
 #         """
-
-
 # rule generate_ab_table_header:
 #     output:
 #         OUT + "/mtb_typing/prepared_reference_data/{sample}/ab_table.header",

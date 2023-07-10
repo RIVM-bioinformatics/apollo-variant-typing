@@ -1,7 +1,7 @@
 import yaml
 
 
-sample_sheet=config["sample_sheet"]
+sample_sheet = config["sample_sheet"]
 with open(sample_sheet) as f:
     SAMPLES = yaml.safe_load(f)
 
@@ -13,12 +13,14 @@ for param in ["threads", "mem_gb"]:
 
 OUT = config["output_dir"]
 
+
 localrules:
     all,
     aggregate_species,
 
 
 include: "workflow/rules/choose_species.smk"
+
 
 rule all:
     input:
