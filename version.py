@@ -1,6 +1,8 @@
-__package_name__ = "juno_template"
-__authors__ = "author"
-__email__ = "author@rivm.nl"
+__package_name__ = "apollo_variant_typing"
+__authors__ = "Roxanne Wolthuis, Boas van der Putten"
+__email__ = "ids-bioinformatics@rivm.nl"
 __license__ = "AGPLv3"
-__version__ = "1.0"
-__description__ = "Template juno pipeline. If you see this message please change it to something appropriate"
+__version__ = "0.0.1"
+__description__ = (
+    "Apollo-variant-typing for interpretation of variants identified in fungal genomes."
+)

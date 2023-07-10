@@ -15,11 +15,11 @@ OUT = config["output_dir"]
 
 localrules:
     all,
+    aggregate_species,
 
 
-include: "workflow/rules/rule.smk"
-
+include: "workflow/rules/choose_species.smk"
 
 rule all:
     input:
-        expand(OUT + "/{sample}_combined.fastq", sample=SAMPLES),
+        expand(OUT + "/typing_check/{sample}_done.txt", sample=SAMPLES),
