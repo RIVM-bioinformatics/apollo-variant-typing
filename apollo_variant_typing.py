@@ -7,15 +7,17 @@ Department: Infektieziekteonderzoek, Diagnostiek en Laboratorium
 Date: 10-07-2023   
 """
 
-from pathlib import Path
-import pathlib
-import yaml
 import argparse
+import pathlib
 import sys
 from dataclasses import dataclass, field
-from juno_library import Pipeline
-from typing import Optional, Union, Callable
-from version import __package_name__, __version__, __description__
+from pathlib import Path
+from typing import Callable, Optional, Union
+
+import yaml
+from juno_library import Pipeline  # type: ignore
+
+from version import __description__, __package_name__, __version__
 
 
 def main() -> None:
