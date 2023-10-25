@@ -90,12 +90,12 @@ class ApolloVariantTyping(Pipeline):
             "--species",
             type=lambda s: s.strip().lower(),
             nargs=2,
-            default=["Mycobacterium", "tuberculosis"],
+            default=["Candida", "auris"],
             required=False,
             metavar=("GENUS", "SPECIES"),
             help="Species name (any species in the metadata file will overwrite"
             " this argument). It should be given as two words (e.g. --species "
-            "Mycobacterium tuberculosis)",
+            "Candida auris)",
         )
         self.add_argument(
             "-d",
