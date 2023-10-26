@@ -44,21 +44,7 @@ def read_input_file(input_file):
     return df_input
 
 
-def get_only_resistance_mutations(df_muts, df_ref, dict_rename):
-    df_merged = df_muts.merge(
-        df_ref,
-        how="inner",
-        left_on=["locus_tag", "ref_aa", "alt_aa"],
-        right_on=["locus_tag", "ref_aa", "alt_aa"],
-    )
-    df_merged = df_merged[dict_rename.keys()]
-    df_merged_renamed = df_merged.rename(columns=dict_rename)
-    return df_merged_renamed
-
-
-def get_allmutations_in_resistance_genes(
-    df_mutations, resistance_variants_csv, dict_rename
-):
+def create_locus_tag_gene_dict(resistance_variants_csv):
     # Create dict from columns locus_tag and gene in resistance_variants_csv, with locus_tag as key and gene as value
     dict_locus_tag_gene = dict(
         zip(resistance_variants_csv["locus_tag"], resistance_variants_csv["gene"])
@@ -67,14 +53,46 @@ def get_allmutations_in_resistance_genes(
     dict_locus_tag_gene = {
         k: v for k, v in dict_locus_tag_gene.items() if v is not None
     }
-    df_full_output = df_mutations[
+    return dict_locus_tag_gene
+
+
+def filter_for_resistance_genes(df_mutations, dict_locus_tag_gene):
+    df_resistance_genes = df_mutations[
         df_mutations["locus_tag"].isin(dict_locus_tag_gene.keys())
     ]
-    # Add gene column to df_full_output
-    df_full_output = df_full_output.copy()
-    df_full_output["gene"] = df_full_output["locus_tag"].map(dict_locus_tag_gene)
-    df_full_output_rename = df_full_output.rename(columns=dict_rename)
-    return df_full_output_rename
+    df_resistance_genes = df_resistance_genes.copy()
+    df_resistance_genes["gene"] = df_resistance_genes["locus_tag"].map(
+        dict_locus_tag_gene
+    )
+    return df_resistance_genes
+
+
+def merge_resistance_genes_with_ref(df_resistance_genes, resistance_variants_csv):
+    df_resistance_with_impact = df_resistance_genes.merge(
+        resistance_variants_csv,
+        how="left",
+        left_on=["locus_tag", "gene", "ref_aa", "alt_aa"],
+        right_on=["locus_tag", "gene", "ref_aa", "alt_aa"],
+    )
+    return df_resistance_with_impact
+
+
+def rename_df_resistance_with_impact(df_resistance_with_impact, dict_rename):
+    df_resistance_with_impact_renamed = df_resistance_with_impact.rename(
+        columns=dict_rename
+    )
+    df_resistance_with_impact_renamed = df_resistance_with_impact_renamed[
+        dict_rename.values()
+    ]
+    return df_resistance_with_impact_renamed
+
+
+def filter_for_known_mutations(df_resistance_with_impact_renamed):
+    # filter for non-empty impact
+    df_known_mutations = df_resistance_with_impact_renamed[
+        df_resistance_with_impact_renamed["impact"].notnull()
+    ]
+    return df_known_mutations
 
 
 def main():
@@ -105,16 +123,24 @@ def main():
     # Read in the input file
     df_mutations = read_input_file(args.input)
 
-    df_merged = get_only_resistance_mutations(
-        df_mutations, resistance_variants_csv, dict_col_rename
+    locus_tag_gene_dict = create_locus_tag_gene_dict(resistance_variants_csv)
+
+    df_resistance_genes = filter_for_resistance_genes(df_mutations, locus_tag_gene_dict)
+
+    df_resistance_with_impact = merge_resistance_genes_with_ref(
+        df_resistance_genes, resistance_variants_csv
     )
 
-    df_full_output = get_allmutations_in_resistance_genes(
-        df_mutations, resistance_variants_csv, dict_col_rename
+    df_all_mutations_resistance_genes = rename_df_resistance_with_impact(
+        df_resistance_with_impact, dict_col_rename
     )
 
-    df_merged.to_csv(args.output, sep="\t", index=False)
-    df_full_output.to_csv(args.full_output, sep="\t", index=False)
+    df_known_resistance_mutations = filter_for_known_mutations(
+        df_all_mutations_resistance_genes
+    )
+
+    df_known_resistance_mutations.to_csv(args.output, sep="\t", index=False)
+    df_all_mutations_resistance_genes.to_csv(args.full_output, sep="\t", index=False)
 
 
 if __name__ == "__main__":
