@@ -1,6 +1,5 @@
 candida_auris:
-  reference_gff: /home/boas/analysis/cauris_mutations/GCF_003013715.1/genomic.gff
-  # reference_gff: /mnt/db/apollo/variant-typing/candida_auris/NC_018140.1.g
+  reference_gff: /mnt/db/apollo/variant-typing/candida_auris/GCF_003013715.1.gff
   resistance_variants_csv: files/cauris/resistance_list.csv
 other:
   reference_gff: None
