@@ -1,15 +1,17 @@
 threads:
+    auriclass: 1
     bcftools: 1
     gatk: 1
-    bedtools: 1
+    picard: 1
     samtools: 1
     bwa: 1
     other: 1
 
 mem_gb:
-    bcftools: 1
-    gatk: 1
-    bedtools: 1
-    samtools: 1
-    bwa: 1
+    auriclass: 4
+    bcftools: 4
+    gatk: 4
+    picard: 8
+    samtools: 4
+    bwa: 4
     other: 1
