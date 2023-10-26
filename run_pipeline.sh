@@ -53,6 +53,21 @@ conda activate pipeline_env
 #----------------------------------------------#
 # Run the pipeline
 
+case $PROJECT_NAME in
+  adhoc)
+    SPECIES="NotProvided"
+    ;;
+  asperg)
+    SPECIES="Aspergillus fumigatus"
+    ;;
+  cauris)
+    SPECIES="Candida auris"
+    ;;
+  *)
+    SPECIES="NotProvided"
+    ;;
+esac
+
 echo -e "\nRun pipeline..."
 
 if [ ! -z ${irods_runsheet_sys__runsheet__lsf_queue} ]; then
@@ -63,7 +78,33 @@ fi
 
 set -euo pipefail
 
-python apollo_variant_typing.py --queue "${QUEUE}" -i "${input_dir}" -o "${output_dir}"
+# Setting up the tmpdir for singularity as the current directory (default is /tmp but it gets full easily)
+# Containers will use it for storing tmp files when building a container
+export SINGULARITY_TMPDIR="$(pwd)"
+
+
+#without exclusion file
+if [ "${EXCLUSION_FILE}" == "" ]
+then
+    python apollo_variant_typing.py \
+        --queue "${QUEUE}" \
+        -i "${input_dir}" \
+        -o "${output_dir}" \
+        -s "${SPECIES}" \
+        --prefix "/mnt/db/juno/sing_containers"
+
+        result=$?
+else
+    python apollo_variant_typing.py \
+        --queue "${QUEUE}" \
+        -i "${input_dir}" \
+        -o "${output_dir}" \
+        -s "${SPECIES}" \
+        --prefix "/mnt/db/juno/sing_containers" \
+        -ex "${EXCLUSION_FILE}"
+
+        result=$?
+fi
 
 result=$?
 
