@@ -10,8 +10,9 @@ def choose_species(wildcards):
         SAMPLES[wildcards.sample]["species"] == "auris"
     ):
         return [
-            OUT + "/cauris/annotated_variants/{sample}.vcf",
-            OUT + "/cauris/resistance_mutations/{sample}.tsv",
+            OUT + "/cauris_typing/annotated_vcf/{sample}.vcf",
+            OUT + "/cauris_typing/resistance_mutations/{sample}.tsv",
+            OUT + "/cauris_typing/auriclass/{sample}.tsv",
         ]
     else:
         return OUT + "/typing_check/{sample}/no_typing_necessary.txt"

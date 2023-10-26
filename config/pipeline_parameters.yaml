@@ -1,5 +1,15 @@
 threads:
+    bcftools: 1
+    gatk: 1
+    bedtools: 1
+    samtools: 1
+    bwa: 1
     other: 1
 
 mem_gb:
+    bcftools: 1
+    gatk: 1
+    bedtools: 1
+    samtools: 1
+    bwa: 1
     other: 1
