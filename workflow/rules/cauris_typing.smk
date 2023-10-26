@@ -95,9 +95,9 @@ rule cauris_bam_to_fastq:
         "docker://broadinstitute/picard:2.27.5"
     conda:
         "../envs/gatk_picard.yaml"
-    threads: config["threads"]["bedtools"]
+    threads: config["threads"]["picard"]
     resources:
-        mem_gb=config["mem_gb"]["bedtools"],
+        mem_gb=config["mem_gb"]["picard"],
     log:
         OUT + "/log/cauris_bam_to_fastq/{sample}.log",
     shell:
@@ -121,9 +121,9 @@ rule cauris_auriclass:
         "docker://quay.io/biocontainers/auriclass:0.5.3--pyhdfd78af_0"
     conda:
         "../envs/auriclass.yaml"
-    threads: config["threads"]["gatk"]
+    threads: config["threads"]["auriclass"]
     resources:
-        mem_gb=config["mem_gb"]["gatk"],
+        mem_gb=config["mem_gb"]["auriclass"],
     params:
         name="{sample}",
     log:
