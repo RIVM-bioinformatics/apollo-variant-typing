@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.1...v0.1.2) (2023-10-26)
+
+
+### Performance Improvements
+
+* set cluster execution params ([13b127e](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/13b127ee5f81480e31a6dc28d55b1ce7f4d74cf6))
+
 ## [0.1.1](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.0...v0.1.1) (2023-10-26)
 
 
