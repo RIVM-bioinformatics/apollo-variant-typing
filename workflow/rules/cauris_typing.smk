@@ -103,9 +103,9 @@ rule cauris_bam_to_fastq:
     shell:
         """
 java -jar /usr/picard/picard.jar SamToFastq \
-     --INPUT {input.bam}\
-     --FASTQ {output.r1} \
-     --SECOND_END_FASTQ {output.r2} \
+    --INPUT {input.bam}\
+    --FASTQ {output.r1} \
+    --SECOND_END_FASTQ {output.r2} \
     2> {log}
         """
 
