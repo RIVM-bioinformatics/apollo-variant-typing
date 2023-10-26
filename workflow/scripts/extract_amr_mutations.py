@@ -25,6 +25,7 @@ dict_col_rename = {
 
 def read_input_file(input_file):
     # Open input files and filter out lines that only contain "@[0-9]+"
+    # These are listed for variants of which the effect is superceded by another variant's effect
     with open(input_file, "r") as f:
         lines = f.readlines()
         lines = [
@@ -58,8 +59,20 @@ def get_only_resistance_mutations(df_muts, df_ref, dict_rename):
 def get_allmutations_in_resistance_genes(
     df_mutations, resistance_variants_csv, dict_rename
 ):
-    list_locus_tags = resistance_variants_csv["locus_tag"].unique()
-    df_full_output = df_mutations[df_mutations["locus_tag"].isin(list_locus_tags)]
+    # Create dict from columns locus_tag and gene in resistance_variants_csv, with locus_tag as key and gene as value
+    dict_locus_tag_gene = dict(
+        zip(resistance_variants_csv["locus_tag"], resistance_variants_csv["gene"])
+    )
+    # Remove duplicates from dict
+    dict_locus_tag_gene = {
+        k: v for k, v in dict_locus_tag_gene.items() if v is not None
+    }
+    df_full_output = df_mutations[
+        df_mutations["locus_tag"].isin(dict_locus_tag_gene.keys())
+    ]
+    # Add gene column to df_full_output
+    df_full_output = df_full_output.copy()
+    df_full_output["gene"] = df_full_output["locus_tag"].map(dict_locus_tag_gene)
     df_full_output_rename = df_full_output.rename(columns=dict_rename)
     return df_full_output_rename
 
