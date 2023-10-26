@@ -16,32 +16,39 @@ fi
 
 if [ ! -d "${input_dir}" ] || [ ! -d "${output_dir}" ]
 then
-  echo "The input directory $input_dir, output directory $output_dir or fastq dir ${input_dir}/clean_fastq does not exist"
+  echo "The input directory $input_dir, output directory $output_dir does not exist"
   exit 1
-else
-  input_fastq="${input_dir}/clean_fastq"
 fi
 
 #----------------------------------------------#
-# Create/update necessary environments
-PATH_MAMBA_YAML="envs/mamba.yaml"
-PATH_MASTER_YAML="envs/template_master.yaml"
-MAMBA_NAME=$(head -n 1 ${PATH_MAMBA_YAML} | cut -f2 -d ' ')
-MASTER_NAME=$(head -n 1 ${PATH_MASTER_YAML} | cut -f2 -d ' ')
+## make sure conda works
 
-echo -e "\nUpdating necessary environments to run the pipeline..."
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/mnt/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<export -f conda
+export -f __conda_activate
+export -f __conda_reactivate
+export -f __conda_hashr
 
-# Removing strict mode because it sometimes breaks the code for 
-# activating an environment and for testing whether some variables
-# are set or not
-set +euo pipefail 
 
-conda env update -f "${PATH_MAMBA_YAML}"
-source activate "${MAMBA_NAME}"
+#----------------------------------------------#
+# Create the environment
 
-mamba env update -f "${PATH_MASTER_YAML}"
-
-source activate "${MASTER_NAME}"
+# we can use the base installation of mamba to create the environment. 
+# Swapping to a parent env is not necessary anymore.
+mamba env create -f envs/apollo_variant_typing.yaml --name pipeline_env
+conda activate pipeline_env
 
 #----------------------------------------------#
 # Run the pipeline
@@ -56,7 +63,7 @@ fi
 
 set -euo pipefail
 
-python template.py --queue "${QUEUE}" -i "${input_dir}" -o "${output_dir}"
+python apollo_variant_typing.py --queue "${QUEUE}" -i "${input_dir}" -o "${output_dir}"
 
 result=$?
 
