@@ -1,26 +1,26 @@
 ﻿gene,locus_tag,ref_aa,alt_aa,impact
-ERG11,CJI96_0001197,43L,43H,Fourfold increase
-ERG11,CJI96_0001197,125V,125A,8–16-fold increase in combination with F126L
-ERG11,CJI96_0001197,126F,126L,8–16-fold increase in combination with V125A
-ERG11,CJI96_0001197,132Y,132F,8–16-fold increase
-ERG11,CJI96_0001197,143K,143R,8–16-fold increase
-ERG11,CJI96_0001197,357Q,357K,Fourfold increase
-ERG11,CJI96_0001197,444F,444L,Fourfold increase
-ERG11,CJI96_0001197,459G,459S,Fourfold increase
-ERG11,CJI96_0001197,466I,466M,Fourfold increase
-ERG11,CJI96_0001197,501Y,501H,Fourfold increase
-TAC1B,CJI96_0004335,640A,640V,16-fold increase
-TAC1B,CJI96_0004335,657A,657V,16-fold increase
-TAC1B,CJI96_0004335,15A,15T,Fourfold increase
-TAC1B,CJI96_0004335,192S,192N,Fourfold increase
-TAC1B,CJI96_0004335,195S,195C,Fourfold increase
-TAC1B,CJI96_0004335,214F,214S,Fourfold increase
-TAC1B,CJI96_0004335,247K,247E,Fourfold increase
-TAC1B,CJI96_0004335,495R,495G,Fourfold increase
-TAC1B,CJI96_0004335,583A,583S,Fourfold increase
-TAC1B,CJI96_0004335,595P,595L,Fourfold increase
-TAC1B,CJI96_0004335,595P,595H,Fourfold increase
-TAC1B,CJI96_0004335,611S,611P,Fourfold increase
-TAC1B,CJI96_0004335,651A,651T,Fourfold increase
-TAC1B,CJI96_0004335,653M,653V,Fourfold increase
-MRR1A,CJI96_0002418,647N,647T,Fourfold increase; not present in ref
+ERG11,CJI96_0001197,43L,43H,fluconazole fourfold MIC increase
+ERG11,CJI96_0001197,125V,125A,fluconazole 8–16-fold MIC increase in combination with F126L
+ERG11,CJI96_0001197,126F,126L,fluconazole 8–16-fold MIC increase in combination with V125A
+ERG11,CJI96_0001197,132Y,132F,fluconazole 8–16-fold MIC increase
+ERG11,CJI96_0001197,143K,143R,fluconazole 8–16-fold MIC increase
+ERG11,CJI96_0001197,357Q,357K,fluconazole fourfold MIC increase
+ERG11,CJI96_0001197,444F,444L,fluconazole fourfold MIC increase
+ERG11,CJI96_0001197,459G,459S,fluconazole fourfold MIC increase
+ERG11,CJI96_0001197,466I,466M,fluconazole fourfold MIC increase
+ERG11,CJI96_0001197,501Y,501H,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,640A,640V,fluconazole 16-fold MIC increase
+TAC1B,CJI96_0004335,657A,657V,fluconazole 16-fold MIC increase
+TAC1B,CJI96_0004335,15A,15T,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,192S,192N,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,195S,195C,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,214F,214S,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,247K,247E,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,495R,495G,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,583A,583S,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,595P,595L,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,595P,595H,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,611S,611P,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,651A,651T,fluconazole fourfold MIC increase
+TAC1B,CJI96_0004335,653M,653V,fluconazole fourfold MIC increase
+MRR1A,CJI96_0002418,647N,647T,fluconazole fourfold MIC increase; not present in ref
