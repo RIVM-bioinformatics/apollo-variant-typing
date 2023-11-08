@@ -4,15 +4,22 @@ set -euo pipefail
 
 #----------------------------------------------#
 # User parameters
-if [ ! -z "${1}" ] || [ ! -z "${2}" ] #|| [ ! -z "${irods_input_projectID}" ]
+if [ ! -z "${1}" ] || [ ! -z "${2}" ] || [ ! -z "${irods_input_projectID}" ]
 then
-   input_dir="${1}"
-   output_dir="${2}"
-#    PROJECT_NAME="${irods_input_projectID}"
+    input_dir="${1}"
+    output_dir="${2}"
+    PROJECT_NAME="${irods_input_projectID}"
+    EXCLUSION_FILE=""
 else
     echo "One of the parameters is missing, make sure there is an input directory, output directory and project name(param 1, 2 or irods_input_projectID)."
     exit 1
 fi
+
+# #check if there is an exclusion file, if so change the parameter
+# if [ ! -z "${irods_input_sequencing__run_id}" ] && [ -f "/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude" ]
+# then
+#   EXCLUSION_FILE="/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude"
+# fi
 
 if [ ! -d "${input_dir}" ] || [ ! -d "${output_dir}" ]
 then
@@ -90,7 +97,7 @@ then
         --queue "${QUEUE}" \
         -i "${input_dir}" \
         -o "${output_dir}" \
-        -s "${SPECIES}" \
+        -s ${SPECIES} \
         --prefix "/mnt/db/juno/sing_containers"
 
         result=$?
@@ -99,7 +106,7 @@ else
         --queue "${QUEUE}" \
         -i "${input_dir}" \
         -o "${output_dir}" \
-        -s "${SPECIES}" \
+        -s ${SPECIES} \
         --prefix "/mnt/db/juno/sing_containers" \
         -ex "${EXCLUSION_FILE}"
 
