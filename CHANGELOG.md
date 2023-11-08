@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.2...v0.1.3) (2023-11-08)
+
+
+### Bug Fixes
+
+* dont use exclude file ([2df6f7e](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/2df6f7e6012630269a97cb0179f8a16ecd644725))
+* run_pipeline projectID parsing ([365ea82](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/365ea82f92224f735345d318d69cb12734f4fdb7))
+
 ## [0.1.2](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.1...v0.1.2) (2023-10-26)
 
 
