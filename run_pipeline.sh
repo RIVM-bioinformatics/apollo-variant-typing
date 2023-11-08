@@ -15,11 +15,11 @@ else
     exit 1
 fi
 
-#check if there is an exclusion file, if so change the parameter
-if [ ! -z "${irods_input_sequencing__run_id}" ] && [ -f "/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude" ]
-then
-  EXCLUSION_FILE="/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude"
-fi
+# #check if there is an exclusion file, if so change the parameter
+# if [ ! -z "${irods_input_sequencing__run_id}" ] && [ -f "/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude" ]
+# then
+#   EXCLUSION_FILE="/data/BioGrid/NGSlab/sample_sheets/${irods_input_sequencing__run_id}.exclude"
+# fi
 
 if [ ! -d "${input_dir}" ] || [ ! -d "${output_dir}" ]
 then
@@ -97,7 +97,7 @@ then
         --queue "${QUEUE}" \
         -i "${input_dir}" \
         -o "${output_dir}" \
-        -s "${SPECIES}" \
+        -s ${SPECIES} \
         --prefix "/mnt/db/juno/sing_containers"
 
         result=$?
@@ -106,7 +106,7 @@ else
         --queue "${QUEUE}" \
         -i "${input_dir}" \
         -o "${output_dir}" \
-        -s "${SPECIES}" \
+        -s ${SPECIES} \
         --prefix "/mnt/db/juno/sing_containers" \
         -ex "${EXCLUSION_FILE}"
 
