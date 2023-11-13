@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.3...v0.1.4) (2023-11-13)
+
+
+### Documentation
+
+* add README ([ed89349](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/ed8934937a6aaf70929275ce490e400d7f06f43f))
+
 ## [0.1.3](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.2...v0.1.3) (2023-11-08)
 
 
