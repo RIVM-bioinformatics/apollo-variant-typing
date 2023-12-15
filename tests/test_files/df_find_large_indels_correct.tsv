@@ -1,0 +1,2 @@
+CHROM	POS	TYPE	REF	ALT	DP	AF	BCSQ	genetic_element	mutation_name
+NC_000913.3	400	INDEL	G	GCTAGCTAGCTA	100	1	NA	b0004_promoter	possible_tandem_repeat_length_11

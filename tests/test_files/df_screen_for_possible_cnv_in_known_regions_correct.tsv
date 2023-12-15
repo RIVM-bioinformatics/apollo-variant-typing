@@ -1,0 +1,3 @@
+genetic_element	mutation_name	comparison_type	impact	chromosome	position	type_of_variant	ref_nt	alt_nt	depth	allele_frequency
+b0003_promoter	possible_tandem_repeat_length_11	tandem_repeat	unknown	NC_000913.3	300	INDEL	A	ATCGATCGATCG	100	1
+b0004_promoter	possible_tandem_repeat_length_11	tandem_repeat	unknown	NC_000913.3	400	INDEL	G	GCTAGCTAGCTA	100	1
