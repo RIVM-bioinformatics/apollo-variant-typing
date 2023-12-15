@@ -157,3 +157,116 @@ class TestNtComparison(unittest.TestCase):
         self.df_exact_matches_correct.reset_index(drop=True, inplace=True)
         self.assertTrue(df_combined.equals(self.df_combined_nt_correct))
 
+
+class TestAaComparison(unittest.TestCase):
+    df_resistance_genes_correct = pd.read_csv(
+        "tests/test_files/df_resistance_genes_correct.tsv", sep="\t"
+    )
+
+    def test_read_input_file(self):
+        df_mutations_test_read_input_correct = pd.read_csv(
+            "tests/test_files/df_mutations_test_read_input_correct.tsv",
+            sep="\t",
+            dtype={"AF": float},
+        )
+        df_mutations_test_read_input = read_input_file(
+            Path("tests/test_files/df_mutations_test_read_input.tsv")
+        )
+
+        self.assertEqual(df_mutations_test_read_input.shape[0], 4)
+        self.assertEqual(df_mutations_test_read_input.shape[1], 12)
+        df_mutations_test_read_input.reset_index(drop=True, inplace=True)
+        df_mutations_test_read_input_correct.reset_index(drop=True, inplace=True)
+        df_mutations_test_read_input_correct[
+            "type"
+        ] = df_mutations_test_read_input_correct["type"].fillna("NA")
+        df_mutations_test_read_input.to_csv(
+            "tests/test_files/inspect1.tsv", sep="\t", index=False
+        )
+        df_mutations_test_read_input_correct.to_csv(
+            "tests/test_files/inspect2.tsv", sep="\t", index=False
+        )
+        self.assertTrue(
+            df_mutations_test_read_input.equals(df_mutations_test_read_input_correct)
+        )
+
+    def test_create_locus_tag_gene_dict(self):
+        create_locus_tag_gene_dict_correct = {"b0001": "gene A"}
+        create_locus_tag_gene_dict_test = create_locus_tag_gene_dict(
+            df_aa_resistance_variants
+        )
+        print(create_locus_tag_gene_dict_test)
+        self.assertEqual(
+            create_locus_tag_gene_dict_test, create_locus_tag_gene_dict_correct
+        )
+
+    def test_filter_for_resistance_genes(self):
+        # df_resistance_genes_correct = pd.read_csv(
+        #     "tests/test_files/df_resistance_genes_correct.tsv", sep="\t"
+        # )
+        df_mutations_parsed = read_input_file(
+            Path("tests/test_files/df_mutations_test_read_input.tsv")
+        )
+        df_resistance_genes_correct_copy = self.df_resistance_genes_correct.copy()
+        df_resistance_genes = filter_for_resistance_genes(
+            df_mutations=df_mutations_parsed,
+            dict_locus_tag_gene={"b0001": "gene A"},
+        )
+        self.assertEqual(df_resistance_genes.shape[0], 2)
+        self.assertEqual(df_resistance_genes.shape[1], 13)
+        df_resistance_genes.reset_index(drop=True, inplace=True)
+        df_resistance_genes_correct_copy.reset_index(drop=True, inplace=True)
+        self.assertTrue(df_resistance_genes.equals(df_resistance_genes_correct_copy))
+
+    def test_merge_resistance_genes_with_ref(self):
+        df_resistance_genes_correct_copy = self.df_resistance_genes_correct.copy()
+        df_resistance_with_impact = merge_resistance_genes_with_ref(
+            df_resistance_genes=df_resistance_genes_correct_copy,
+            resistance_variants_csv=df_aa_resistance_variants,
+        )
+        df_resistance_with_impact_correct = pd.read_csv(
+            "tests/test_files/df_resistance_with_impact_correct.tsv", sep="\t"
+        )
+        self.assertEqual(df_resistance_with_impact.shape[0], 2)
+        self.assertEqual(df_resistance_with_impact.shape[1], 14)
+        df_resistance_with_impact.reset_index(drop=True, inplace=True)
+        df_resistance_with_impact_correct.reset_index(drop=True, inplace=True)
+        self.assertTrue(
+            df_resistance_with_impact.equals(df_resistance_with_impact_correct)
+        )
+
+    def test_rename_df_resistance_with_impact(self):
+        # simple rename and reorder function, no need to use realistic mutation data
+        df_test = pd.DataFrame(
+            {
+                "A": [1, 2],
+                "B": [3, 4],
+            }
+        )
+        dict_rename = {"B": "D", "A": "C"}
+        df_test_correct = pd.DataFrame(
+            {
+                "D": [3, 4],
+                "C": [1, 2],
+            }
+        )
+        df_test_renamed = rename_df_resistance_with_impact(
+            df_test, dict_rename=dict_rename
+        )
+        self.assertTrue(df_test_renamed.equals(df_test_correct))
+
+    def test_filter_for_known_mutations(self):
+        df_test = pd.DataFrame(
+            {
+                "mutation": ["a", "b", "c"],
+                "impact": ["HIGH", "MODERATE", None],
+            }
+        )
+        df_test_correct = pd.DataFrame(
+            {
+                "mutation": ["a", "b"],
+                "impact": ["HIGH", "MODERATE"],
+            }
+        )
+        df_test_filtered = filter_for_known_mutations(df_test)
+        self.assertTrue(df_test_filtered.equals(df_test_correct))
