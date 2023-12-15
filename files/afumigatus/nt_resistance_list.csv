@@ -1,0 +1,4 @@
+genetic_element,mutation_name,chrom,position,ref_nt,alt_nt,comparison_type,impact
+Cyp51A_promoter,TR34,NC_007197.1,1782107,T,TTTCATTCGGCTCAGCACACATCCGGACCGCGTGA,tandem_repeat,azole resistance
+Cyp51A_promoter,TR46,NC_007197.1,1782102,G,GCAACTTTCATTCGGCTCAGCACACATCCGGACCGCGTGATTCTAGA,tandem_repeat,azole resistance
+
