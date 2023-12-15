@@ -1,4 +1,4 @@
-﻿gene,locus_tag,ref_aa,alt_aa,impact
+﻿genetic_element,locus_tag,ref_aa,alt_aa,impact
 ERG11,CJI96_0001197,43L,43H,fluconazole; increase unknown
 ERG11,CJI96_0001197,125V,125A,fluconazole 8–16-fold MIC increase in combination with F126L
 ERG11,CJI96_0001197,126F,126L,fluconazole 8–16-fold MIC increase in combination with V125A

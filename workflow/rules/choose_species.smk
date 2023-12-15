@@ -3,8 +3,8 @@ def choose_species(wildcards):
         SAMPLES[wildcards.sample]["species"] == "fumigatus"
     ):
         return [
-            OUT + "/afumigatus/annotated_variants/{sample}.vcf",
-            OUT + "/afumigatus/resistance_mutations/{sample}.tsv",
+            OUT + "/afumigatus_typing/annotated_vcf/{sample}.vcf",
+            OUT + "/afumigatus_typing/resistance_mutations/{sample}.combined.tsv",
         ]
     elif (SAMPLES[wildcards.sample]["genus"] == "candida") & (
         SAMPLES[wildcards.sample]["species"] == "auris"

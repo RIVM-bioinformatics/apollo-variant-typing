@@ -1,0 +1,4 @@
+genetic_element	mutation_name	chrom	position	ref_nt	alt_nt	comparison_type	impact
+b0003_promoter	indel_1	NC_000913.3	300	A	ATCGATCGATCG	tandem_repeat	resistance
+b0004_promoter	indel_2	NC_000913.3	399	G	GAAAAAAAAAAAA	tandem_repeat	resistance
+b0005_promoter	intergenic_SNP_1	NC_000913.3	500	A	T		resistance

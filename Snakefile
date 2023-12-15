@@ -38,6 +38,7 @@ localrules:
 include: "workflow/rules/choose_species.smk"
 include: "workflow/rules/prepare_files.smk"
 include: "workflow/rules/cauris_typing.smk"
+include: "workflow/rules/afumigatus_typing.smk"
 
 
 expected_output = []

@@ -1,6 +1,10 @@
 candida_auris:
   reference_gff: /mnt/db/apollo/variant-typing/candida_auris/GCF_003013715.1.gff
-  resistance_variants_csv: files/cauris/resistance_list.csv
+  aa_resistance_variants_csv: files/cauris/aa_resistance_list.csv
+aspergillus_fumigatus:
+  reference_gff: /mnt/db/apollo/variant-typing/aspergillus_fumigatus/GCF_000002655.1.gff
+  aa_resistance_variants_csv: files/afumigatus/aa_resistance_list.csv
+  nt_resistance_variants_csv: files/afumigatus/nt_resistance_list.csv
 other:
   reference_gff: None
   resistance_variants_csv: None
