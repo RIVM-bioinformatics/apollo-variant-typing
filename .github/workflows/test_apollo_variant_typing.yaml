@@ -19,6 +19,7 @@ jobs:
         uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: envs/apollo_variant_typing.yaml
+          environment-name: pipeline_env
       - name: Conda list
         shell: bash -l {0}
         run: conda list
