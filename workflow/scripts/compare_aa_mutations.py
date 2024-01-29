@@ -8,16 +8,16 @@ from typing import Dict
 import pandas as pd
 
 dict_col_rename = {
-    "gene": "gene",
-    "aa_change": "aa_change",
+    "gene": "genetic_element",
+    "aa_change": "mutation_name",
     "impact": "impact",
     "CHROM": "chromosome",
     "POS": "position",
     "TYPE": "type_of_variant",
     "type": "type_of_consequence",
     "locus_tag": "locus_tag",
-    "REF": "ref_nucl",
-    "ALT": "alt_nucl",
+    "REF": "ref_nt",
+    "ALT": "alt_nt",
     "ref_aa": "ref_aa",
     "alt_aa": "alt_aa",
     "DP": "depth",
@@ -43,15 +43,19 @@ def read_input_file(input_file: Path) -> pd.DataFrame:
     with open(input_file, "r") as f:
         lines = f.readlines()
         lines = [
-            line.rstrip("\n") for line in lines if not re.match(r"^@[0-9]+$", line)
+            line.rstrip("\n") for line in lines if not re.search(r"\t@[0-9]+$", line)
         ]
     # Read lines into pandas dataframe
     df_input = pd.DataFrame([line.split("\t") for line in lines[1:]])
     df_input.columns = lines[0].rstrip("\n").split("\t")
-    df_input[["type", "locus_tag", "aa_change"]] = df_input["BCSQ"].str.split(
+    # Set dtypes
+    df_input = df_input.astype({"POS": int, "DP": int, "AF": float})
+    df_input[["type", "locus_tag", "mutation_name"]] = df_input["BCSQ"].str.split(
         "|", expand=True
     )[[0, 1, 5]]
-    df_input[["ref_aa", "alt_aa"]] = df_input["aa_change"].str.split(">", expand=True)
+    df_input[["ref_aa", "alt_aa"]] = df_input["mutation_name"].str.split(
+        ">", expand=True
+    )
     df_input = df_input.drop(columns=["BCSQ"])
     return df_input
 
@@ -72,7 +76,10 @@ def create_locus_tag_gene_dict(resistance_variants_csv: pd.DataFrame) -> Dict[st
     """
     # Create dict from columns locus_tag and gene in resistance_variants_csv, with locus_tag as key and gene as value
     dict_locus_tag_gene = dict(
-        zip(resistance_variants_csv["locus_tag"], resistance_variants_csv["gene"])
+        zip(
+            resistance_variants_csv["locus_tag"],
+            resistance_variants_csv["genetic_element"],
+        )
     )
     # Remove duplicates from dict
     dict_locus_tag_gene = {
@@ -103,7 +110,7 @@ def filter_for_resistance_genes(
         df_mutations["locus_tag"].isin(dict_locus_tag_gene.keys())
     ]
     df_resistance_genes = df_resistance_genes.copy()
-    df_resistance_genes["gene"] = df_resistance_genes["locus_tag"].map(
+    df_resistance_genes["genetic_element"] = df_resistance_genes["locus_tag"].map(
         dict_locus_tag_gene
     )
     return df_resistance_genes
@@ -130,8 +137,8 @@ def merge_resistance_genes_with_ref(
     df_resistance_with_impact = df_resistance_genes.merge(
         resistance_variants_csv,
         how="left",
-        left_on=["locus_tag", "gene", "ref_aa", "alt_aa"],
-        right_on=["locus_tag", "gene", "ref_aa", "alt_aa"],
+        left_on=["locus_tag", "genetic_element", "ref_aa", "alt_aa"],
+        right_on=["locus_tag", "genetic_element", "ref_aa", "alt_aa"],
     )
     return df_resistance_with_impact
 

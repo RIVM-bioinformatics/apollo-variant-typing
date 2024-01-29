@@ -60,11 +60,11 @@ gatk VariantsToTable \
         """
 
 
-rule cauris_extract_amr_mutations:
+rule cauris_extract_aa_mutations:
     input:
         tsv=OUT + "/cauris_typing/annotated_variants/{sample}.tsv",
-        resistance_variants_csv=lambda wildcards: SAMPLES[wildcards.sample][
-            "resistance_variants_csv"
+        aa_resistance_variants_csv=lambda wildcards: SAMPLES[wildcards.sample][
+            "aa_resistance_variants_csv"
         ],
     output:
         tsv=OUT + "/cauris_typing/resistance_mutations/{sample}.tsv",
@@ -79,7 +79,7 @@ python workflow/scripts/extract_amr_mutations.py \
     --input {input.tsv} \
     --output {output.tsv} \
     --full-output {output.full} \
-    --resistance_variants_csv {input.resistance_variants_csv}
+    --resistance_variants_csv {input.aa_resistance_variants_csv}
         """
 
 
