@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.4...v0.2.0) (2024-01-29)
+
+
+### Features
+
+* add a fumigatus amr screening ([04177cd](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/04177cd1bfbbfb3ff748a72eec0546d8641678b0))
+* add basic aspergillus fumigatus typing ([3a7e20d](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/3a7e20df1b6a997ed281cecf2e07982d7439ea75))
+
 ## [0.1.4](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.3...v0.1.4) (2023-11-13)
 
 
