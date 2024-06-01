@@ -72,10 +72,10 @@ rule cauris_extract_aa_mutations:
     message:
         "Extract AMR mutations for {wildcards.sample}"
     log:
-        OUT + "/log/cauris_extract_amr_mutations/{sample}.log",
+        OUT + "/log/cauris_compare_aa_mutations/{sample}.log",
     shell:
         """
-python workflow/scripts/extract_amr_mutations.py \
+python workflow/scripts/compare_aa_mutations.py \
     --input {input.tsv} \
     --output {output.tsv} \
     --full-output {output.full} \
