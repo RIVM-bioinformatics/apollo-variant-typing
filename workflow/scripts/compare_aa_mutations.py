@@ -48,6 +48,8 @@ def read_input_file(input_file: Path) -> pd.DataFrame:
     # Read lines into pandas dataframe
     df_input = pd.DataFrame([line.split("\t") for line in lines[1:]])
     df_input.columns = lines[0].rstrip("\n").split("\t")
+    # if AF contains a string like 0.5,0.5 convert to two rows for this record with AF 0.5
+    df_input = df_input.assign(AF=df_input["AF"].str.split(",")).explode("AF")
     # Set dtypes
     df_input = df_input.astype({"POS": int, "DP": int, "AF": float})
     df_input[["type", "locus_tag", "mutation_name"]] = df_input["BCSQ"].str.split(
