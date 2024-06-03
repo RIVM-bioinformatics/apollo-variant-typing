@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.1](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.0...v0.2.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* add rule to localrules ([56c1384](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/56c13840da71a7fce7fc7c6b624c7ab36612e6f1))
+* drop AF parsing as float ([32a4ead](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/32a4ead04384c7838efca382577b4647513c3443))
+* fix heterozygous parsing ([0f5659d](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/0f5659d02480e593cbbd1db648b102f6096ac878))
+* revert heterozygous parsing ([6276e9b](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/6276e9b9dc88224029c1eb065d228a93615d5dd0))
+* script name ([6f1b113](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/6f1b113f9c1af6b6904f0272597af9857fb2b89e))
+
 ## [0.2.0](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.1.4...v0.2.0) (2024-01-29)
 
 
