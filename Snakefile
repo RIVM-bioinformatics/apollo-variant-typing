@@ -31,7 +31,7 @@ localrules:
     copy_ref_gff,
     aggregate_species,
     no_typing,
-    cauris_extract_amr_mutations,
+    cauris_extract_aa_mutations,
     combine_auriclas,
 
 
