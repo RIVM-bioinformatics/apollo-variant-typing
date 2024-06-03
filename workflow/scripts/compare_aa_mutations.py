@@ -52,7 +52,7 @@ def read_input_file(input_file: Path) -> pd.DataFrame:
     # df_input = df_input.assign(AF=df_input["AF"].str.split(",")).explode("AF")
     # Set dtypes
     # df_input = df_input.astype({"POS": int, "DP": int, "AF": float})
-    df_input = df_input.astype({"POS": int, "DP": int})
+    df_input = df_input.astype({"POS": int, "DP": int, "AF": str})
     df_input[["type", "locus_tag", "mutation_name"]] = df_input["BCSQ"].str.split(
         "|", expand=True
     )[[0, 1, 5]]

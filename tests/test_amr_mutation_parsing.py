@@ -5,19 +5,12 @@ from sys import path
 import pandas as pd
 
 from workflow.scripts.compare_aa_mutations import (
-    create_locus_tag_gene_dict,
-    filter_for_known_mutations,
-    filter_for_resistance_genes,
-    merge_resistance_genes_with_ref,
-    read_input_file,
-    rename_df_resistance_with_impact,
-)
+    create_locus_tag_gene_dict, filter_for_known_mutations,
+    filter_for_resistance_genes, merge_resistance_genes_with_ref,
+    read_input_file, rename_df_resistance_with_impact)
 from workflow.scripts.compare_nt_mutations import (
-    combine_exact_matches_and_possible_cnvs,
-    find_exact_matches,
-    find_large_indels,
-    screen_for_possible_cnv_in_known_regions,
-)
+    combine_exact_matches_and_possible_cnvs, find_exact_matches,
+    find_large_indels, screen_for_possible_cnv_in_known_regions)
 
 # init df_mutations with missense SNP and synonymous SNP in the same genetic element, and a large intergenic INDEL (promoter mutation)
 df_mutations = pd.read_csv("tests/test_files/df_mutations.tsv", sep="\t")
@@ -160,14 +153,14 @@ class TestNtComparison(unittest.TestCase):
 
 class TestAaComparison(unittest.TestCase):
     df_resistance_genes_correct = pd.read_csv(
-        "tests/test_files/df_resistance_genes_correct.tsv", sep="\t"
+        "tests/test_files/df_resistance_genes_correct.tsv", sep="\t", dtype={"AF": str}
     )
 
     def test_read_input_file(self):
         df_mutations_test_read_input_correct = pd.read_csv(
             "tests/test_files/df_mutations_test_read_input_correct.tsv",
             sep="\t",
-            dtype={"AF": float},
+            dtype={"AF": str},
         )
         df_mutations_test_read_input = read_input_file(
             Path("tests/test_files/df_mutations_test_read_input.tsv")
@@ -180,12 +173,6 @@ class TestAaComparison(unittest.TestCase):
         df_mutations_test_read_input_correct[
             "type"
         ] = df_mutations_test_read_input_correct["type"].fillna("NA")
-        df_mutations_test_read_input.to_csv(
-            "tests/test_files/inspect1.tsv", sep="\t", index=False
-        )
-        df_mutations_test_read_input_correct.to_csv(
-            "tests/test_files/inspect2.tsv", sep="\t", index=False
-        )
         self.assertTrue(
             df_mutations_test_read_input.equals(df_mutations_test_read_input_correct)
         )
@@ -201,13 +188,11 @@ class TestAaComparison(unittest.TestCase):
         )
 
     def test_filter_for_resistance_genes(self):
-        # df_resistance_genes_correct = pd.read_csv(
-        #     "tests/test_files/df_resistance_genes_correct.tsv", sep="\t"
-        # )
         df_mutations_parsed = read_input_file(
             Path("tests/test_files/df_mutations_test_read_input.tsv")
         )
         df_resistance_genes_correct_copy = self.df_resistance_genes_correct.copy()
+
         df_resistance_genes = filter_for_resistance_genes(
             df_mutations=df_mutations_parsed,
             dict_locus_tag_gene={"b0001": "gene A"},
@@ -225,12 +210,13 @@ class TestAaComparison(unittest.TestCase):
             resistance_variants_csv=df_aa_resistance_variants,
         )
         df_resistance_with_impact_correct = pd.read_csv(
-            "tests/test_files/df_resistance_with_impact_correct.tsv", sep="\t"
+            "tests/test_files/df_resistance_with_impact_correct.tsv", sep="\t", dtype={"AF": str}
         )
         self.assertEqual(df_resistance_with_impact.shape[0], 2)
         self.assertEqual(df_resistance_with_impact.shape[1], 14)
         df_resistance_with_impact.reset_index(drop=True, inplace=True)
         df_resistance_with_impact_correct.reset_index(drop=True, inplace=True)
+        
         self.assertTrue(
             df_resistance_with_impact.equals(df_resistance_with_impact_correct)
         )
