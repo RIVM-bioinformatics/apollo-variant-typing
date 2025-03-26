@@ -72,7 +72,7 @@ rule afumigatus_compare_aa_mutations:
     message:
         "Extract AMR mutations (amino acid based) for {wildcards.sample}"
     resources:
-        mem_gb=config["mem_gb"]["compare"]
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_compare_aa_mutations/{sample}.log",
     shell:
@@ -96,7 +96,7 @@ rule afumigatus_compare_nt_mutations:
     message:
         "Extract AMR mutations (nucleotide based) for {wildcards.sample}"
     resources:
-        mem_gb=config["mem_gb"]["compare"]
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_compare_nt_mutations/{sample}.log",
     shell:
@@ -119,7 +119,7 @@ rule afumigatus_combine_aa_nt_mutations:
     message:
         "Combine AMR mutations (amino acid and nucleotide based) for {wildcards.sample}"
     resources:
-        mem_gb=config["mem_gb"]["compare"]
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_combine_aa_nt_mutations/{sample}.log",
     shell:
