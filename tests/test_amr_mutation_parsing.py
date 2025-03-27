@@ -177,9 +177,9 @@ class TestAaComparison(unittest.TestCase):
         self.assertEqual(df_mutations_test_read_input.shape[1], 12)
         df_mutations_test_read_input.reset_index(drop=True, inplace=True)
         df_mutations_test_read_input_correct.reset_index(drop=True, inplace=True)
-        df_mutations_test_read_input_correct["type"] = (
-            df_mutations_test_read_input_correct["type"].fillna("NA")
-        )
+        df_mutations_test_read_input_correct[
+            "type"
+        ] = df_mutations_test_read_input_correct["type"].fillna("NA")
         self.assertTrue(
             df_mutations_test_read_input.equals(df_mutations_test_read_input_correct)
         )
