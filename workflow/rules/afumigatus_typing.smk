@@ -71,6 +71,8 @@ rule afumigatus_compare_aa_mutations:
         full=OUT + "/afumigatus_typing/resistance_mutations/aa/{sample}.aa.full.tsv",
     message:
         "Extract AMR mutations (amino acid based) for {wildcards.sample}"
+    resources:
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_compare_aa_mutations/{sample}.log",
     shell:
@@ -93,6 +95,8 @@ rule afumigatus_compare_nt_mutations:
         tsv=OUT + "/afumigatus_typing/resistance_mutations/nt/{sample}.nt.tsv",
     message:
         "Extract AMR mutations (nucleotide based) for {wildcards.sample}"
+    resources:
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_compare_nt_mutations/{sample}.log",
     shell:
@@ -114,6 +118,8 @@ rule afumigatus_combine_aa_nt_mutations:
         full=OUT + "/afumigatus_typing/resistance_mutations/{sample}.combined.full.tsv",
     message:
         "Combine AMR mutations (amino acid and nucleotide based) for {wildcards.sample}"
+    resources:
+        mem_gb=config["mem_gb"]["compare"],
     log:
         OUT + "/log/afumigatus_combine_aa_nt_mutations/{sample}.log",
     shell:
