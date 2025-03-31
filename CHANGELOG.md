@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.1...v0.2.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* made adjustments to pipeline parameters and afumigatus_typing rule for a.fumigatus typing in iRODs ([8db7624](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/8db7624e3123cb3c796386bbad4503772367f449))
+
 ## [0.2.1](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.0...v0.2.1) (2024-06-03)
 
 
