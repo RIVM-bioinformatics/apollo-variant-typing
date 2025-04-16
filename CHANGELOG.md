@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.2...v0.2.3) (2025-04-16)
+
+
+### Bug Fixes
+
+* update juno lib ([457c26e](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/457c26e49e44a29d799e2cc4c91b6518d05c4e07))
+
 ## [0.2.2](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.1...v0.2.2) (2025-03-27)
 
 
