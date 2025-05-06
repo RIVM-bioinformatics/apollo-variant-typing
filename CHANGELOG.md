@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.3...v0.2.4) (2025-05-06)
+
+
+### Bug Fixes
+
+* Add setuptools v.79.0.1 depencency to yaml ([48b75f8](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/48b75f8cf2b18ebe97d096d86db646bc317f4366))
+
 ## [0.2.3](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.2...v0.2.3) (2025-04-16)
 
 
