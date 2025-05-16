@@ -1,4 +1,36 @@
-﻿genetic_element,locus_tag,ref_aa,alt_aa,impact
+﻿genetic_element,locus_tag,ref_aa,alt_aa,impact,drug
+CIS2,B9J08_01093,27A,27T,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,Echinocandins
+ERG6,B9J08_04223,131G,131S,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,177Y,177X,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG3,B9J08_01595,182W,182*,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,"AmB, azoles "
+ERG3,B9J08_01595,207L,207I,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,"AmB, azoles "
+ERG6,B9J08_04223,238S,238X,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,318R,318I,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,329E,329X,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,369V,369E,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,62D,62fs,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,77Y,77C,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,86E,86fs,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,AmB
+ERG6,B9J08_04223,97R,97fs,The mutation was created in the same susceptible species background and effect on resistance was confirmed by measurements.,AmB
+ERG11,B9J08_03698,125V,125A,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations. -2,Azoles
+ERG11,B9J08_03698,125VF,125AL,,Azoles
+ERG11,B9J08_03698,126F,126L,The mutation was created in the same gene but expressed in another species with potentially non endogenous level of expression and effect on resistance was confirmed by experimental measurements. The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Azoles
+ERG11,B9J08_03698,126F,126T,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Azoles
+ERG11,B9J08_03698,132Y,132F,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,Azoles
+ERG11,B9J08_03698,143K,143R,The mutation was identified by experimental evolution where its high frequency in independent replicates suggests it causes resistance.,Azoles
+ERG11,B9J08_03698,177K,177R,-2,Azoles
+ERG11,B9J08_03698,225D,225N,The mutation was created in the same susceptible species background and effect on resistance was confirmed by measurements.,Azoles
+ERG11,B9J08_03698,306M,306I,The mutation was created in the same susceptible species background and effect on resistance was confirmed by measurements.,Azoles
+ERG11,B9J08_03698,335N,335S,-2,Azoles
+ERG11,B9J08_03698,343E,343D,-2,Azoles
+ERG11,B9J08_03698,357Q,357K,,Azoles
+ERG11,B9J08_03698,43L,43H,,Azoles
+ERG11,B9J08_03698,429E,429*,,"AmB, azoles "
+ERG11,B9J08_03698,444F,444L,,Azoles
+ERG11,B9J08_03698,459G,459S,,Azoles
+ERG11,B9J08_03698,466I,466M,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Azoles
+ERG11,B9J08_03698,501H,501H,,Azoles
+ERG11,B9J08_03698,501Y,501H,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Azoles
 ERG11,CJI96_0001197,43L,43H,fluconazole; increase unknown
 ERG11,CJI96_0001197,125V,125A,fluconazole 8–16-fold MIC increase in combination with F126L
 ERG11,CJI96_0001197,126F,126L,fluconazole 8–16-fold MIC increase in combination with V125A
@@ -9,6 +41,44 @@ ERG11,CJI96_0001197,444F,444L,fluconazole fourfold MIC increase
 ERG11,CJI96_0001197,459G,459S,fluconazole; increase unknown
 ERG11,CJI96_0001197,466I,466M,fluconazole; increase unknown
 ERG11,CJI96_0001197,501Y,501H,fluconazole; increase unknown
+FKS1,B9J08_02922,1354R,1354H,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,1354R,1354Y,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,635F,635S,-8,Echinocandins
+FKS1,B9J08_02922,635F,635del,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,Echinocandins
+FKS1,B9J08_02922,635F,635C,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,635F,635Y,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,635FL,635L,,Echinocandins
+FKS1,B9J08_02922,639S,639F,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,639S,639P,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,639S,639Y,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,639S ,639T,,Echinocandins
+FKS1,B9J08_02922,642D,642H,-8,Echinocandins
+FKS1,B9J08_02922,642D,642Y,The mutation was identified in a 'natural' strain (e.g. a clinical isolate) that is resistant but without any further validations.,Echinocandins
+FKS1,B9J08_02922,645R,645T,-8,Echinocandins
+FKS1,B9J08_02922,690M,689I,Same as M690I if FL635L is present. Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,Echinocandins
+FKS1,B9J08_02922,690M,690I,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,Echinocandins
+FKS1,B9J08_02922,691W,691L,The mutation was created in the same susceptible species background and effect on resistance was confirmed by measurements.,Echinocandins
+FUR1,B9J08_00185,211F,211I,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,5FC
+MEC3,B9J08_00960,272A,272V,Significant association between the mutation and resistance in a population as determined by GWAS (or other population-based association such as QTL or classical genetics).,"AmB, azoles "
+MRR1,B9J08_01918,647N,647T,,azoles
+MRR1A,CJI96_0002418,647N,647T,fluconazole fourfold MIC increase; not present in ref
+TAC1B,B9J08_04780,15A,15T,,Azoles
+TAC1B,B9J08_04780,190IF,190I,Same as FS191S,Azoles
+TAC1B,B9J08_04780,192S,192N,,Azoles
+TAC1B,B9J08_04780,195C,195S,,Azoles
+TAC1B,B9J08_04780,214F,214S,,Azoles
+TAC1B,B9J08_04780,247K,247E,,Azoles
+TAC1B,B9J08_04780,495R,495G,,Azoles
+TAC1B,B9J08_04780,583A,583S,,Azoles
+TAC1B,B9J08_04780,595P,595L,,Azoles
+TAC1B,B9J08_04780,595P,595H,,Azoles
+TAC1B,B9J08_04780,611S,611P,,Azoles
+TAC1B,B9J08_04780,640A,640V,,Azoles
+TAC1B,B9J08_04780,651A,651T ,,Azoles
+TAC1B,B9J08_04780,653M,653V,,Azoles
+TAC1B,B9J08_04780,657A,657V,,Azoles
+TAC1B,B9J08_04780,862_N866F,862_N866del,,Azoles
+TAC1B,B9J08_04780,P611S,611P,,Azoles
 TAC1B,CJI96_0004335,640A,640V,fluconazole 16-fold MIC increase
 TAC1B,CJI96_0004335,657A,657V,fluconazole; increase unknown
 TAC1B,CJI96_0004335,15A,15T,fluconazole; increase unknown
@@ -23,4 +93,3 @@ TAC1B,CJI96_0004335,595P,595H,fluconazole; increase unknown
 TAC1B,CJI96_0004335,611S,611P,fluconazole fourfold MIC increase
 TAC1B,CJI96_0004335,651A,651T,fluconazole; increase unknown
 TAC1B,CJI96_0004335,653M,653V,fluconazole; increase unknown
-MRR1A,CJI96_0002418,647N,647T,fluconazole fourfold MIC increase; not present in ref
