@@ -222,7 +222,7 @@ class TestAaComparison(unittest.TestCase):
             dtype={"AF": str},
         )
         self.assertEqual(df_resistance_with_impact.shape[0], 2)
-        self.assertEqual(df_resistance_with_impact.shape[1], 14)
+        self.assertEqual(df_resistance_with_impact.shape[1], 15)
         df_resistance_with_impact.reset_index(drop=True, inplace=True)
         df_resistance_with_impact_correct.reset_index(drop=True, inplace=True)
 
@@ -253,15 +253,21 @@ class TestAaComparison(unittest.TestCase):
     def test_filter_for_known_mutations(self):
         df_test = pd.DataFrame(
             {
-                "mutation": ["a", "b", "c"],
-                "impact": ["HIGH", "MODERATE", None],
+                "mutation": ["a", "b", "c", "d"],
+                "impact": ["HIGH", "MODERATE", None, None],
+                "drug": ["drug1", None, None, "drug2"],
             }
         )
         df_test_correct = pd.DataFrame(
             {
-                "mutation": ["a", "b"],
-                "impact": ["HIGH", "MODERATE"],
+                "mutation": ["a", "b", "d"],
+                "impact": ["HIGH", "MODERATE", None],
+                "drug": ["drug1", None, "drug2"],
             }
         )
         df_test_filtered = filter_for_known_mutations(df_test)
+
+        df_test_filtered.reset_index(inplace=True, drop=True)
+        df_test_correct.reset_index(inplace=True, drop=True)
+
         self.assertTrue(df_test_filtered.equals(df_test_correct))

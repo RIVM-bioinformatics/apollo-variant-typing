@@ -1,3 +1,3 @@
-CHROM	POS	TYPE	REF	ALT	DP	AF	type	locus_tag	mutation_name	ref_aa	alt_aa	genetic_element	impact
-NC_000913.3	100	SNP	A	T	100	1	missense	b0001	10E>10K	10E	10K	gene A	resistance
+CHROM	POS	TYPE	REF	ALT	DP	AF	type	locus_tag	mutation_name	ref_aa	alt_aa	genetic_element	impact	drug
+NC_000913.3	100	SNP	A	T	100	1	missense	b0001	10E>10K	10E	10K	gene A	resistance	drug1
 NC_000913.3	200	SNP	A	T	100	1	synonymous	b0001	20S	20S		gene A	

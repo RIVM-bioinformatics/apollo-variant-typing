@@ -56,18 +56,18 @@ def read_input_file(input_file: Path) -> pd.DataFrame:
     df_input = df_input.astype({"POS": int, "DP": int, "AF": str})
 
     # split on comma to separate multiple entries on single line
-    df_input['BCSQ'] = df_input['BCSQ'].str.split(",")
+    df_input["BCSQ"] = df_input["BCSQ"].str.split(",")
     df_input_long = df_input.explode("BCSQ", ignore_index=True)
 
     # Get number of columns. Ususally 7 or 9 with the second to last containing aa mutation
     # This differs per reference
     nr_col = df_input_long["BCSQ"].str.split("|", expand=True).shape[1]
-    aa_mutation_col = nr_col -2
+    aa_mutation_col = nr_col - 2
 
     # Split BCSQ fields based on pipe and keep type, locus_tag and amino acid mutation name
-    df_input_long[["type", "locus_tag", "mutation_name"]] = df_input_long["BCSQ"].str.split(
-        "|", expand=True
-    )[[0, 1, aa_mutation_col]]
+    df_input_long[["type", "locus_tag", "mutation_name"]] = df_input_long[
+        "BCSQ"
+    ].str.split("|", expand=True)[[0, 1, aa_mutation_col]]
 
     # Split aa mutation into ref and alt
     df_input_long[["ref_aa", "alt_aa"]] = df_input_long["mutation_name"].str.split(
@@ -204,7 +204,8 @@ def filter_for_known_mutations(
         Dataframe with only known mutations
     """
     df_known_mutations = df_resistance_with_impact_renamed[
-        df_resistance_with_impact_renamed["impact"].notnull() | df_resistance_with_impact_renamed["drug"].notnull()
+        df_resistance_with_impact_renamed["impact"].notnull()
+        | df_resistance_with_impact_renamed["drug"].notnull()
     ]
     return df_known_mutations
 
