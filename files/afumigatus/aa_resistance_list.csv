@@ -1,4 +1,4 @@
-genetic_element,locus_tag,ref_aa,alt_aa,impact
-Cyp51A,AFUA_4G06890,98L,98H,azole resistance
-Cyp51A,AFUA_4G06890,121Y,121F,azole resistance
-Cyp51A,AFUA_4G06890,289T,289A,azole resistance
+genetic_element,locus_tag,ref_aa,alt_aa,impact,drug
+Cyp51A,AFUA_4G06890,98L,98H,azole resistance,-
+Cyp51A,AFUA_4G06890,121Y,121F,azole resistance,-
+Cyp51A,AFUA_4G06890,289T,289A,azole resistance,-
