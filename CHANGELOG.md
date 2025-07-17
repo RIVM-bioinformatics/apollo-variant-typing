@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.4...v0.3.0) (2025-07-17)
+
+
+### Features
+
+* added cauris mutations ([ea4be82](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/ea4be82b0900a673bb9c2e31a73946443cf3f0a0))
+
+
+### Bug Fixes
+
+* fix test and formatting ([fa5c0d9](https://github.com/RIVM-bioinformatics/apollo-variant-typing/commit/fa5c0d9090bebbde05337b12ba1fc7319342b2cf))
+
 ## [0.2.4](https://github.com/RIVM-bioinformatics/apollo-variant-typing/compare/v0.2.3...v0.2.4) (2025-05-06)
 
 
